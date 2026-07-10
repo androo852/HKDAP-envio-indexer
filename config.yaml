@@ -1,9 +1,10 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
 name: envio-indexer
 
-# 1. Global contract definition (Declares WHAT events exist)
+# 1. Global contract definition
 contracts:
   - name: UpgradeableProxy
+    handler: src/EventHandlers.ts  # <-- Added this required path line
     events:
       - event: AdminChanged(address previousAdmin, address newAdmin)
       - event: Approval(address indexed owner, address indexed spender, uint256 value)
@@ -25,7 +26,7 @@ contracts:
       - event: Unpaused()
       - event: Upgraded(address indexed implementation)
 
-# 2. Network definition (Declares WHERE the contract lives)
+# 2. Network definition
 networks:
   - id: 1
     start_block: 0
