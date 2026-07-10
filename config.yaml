@@ -4,7 +4,7 @@ name: envio-indexer
 # 1. Global contract definition
 contracts:
   - name: UpgradeableProxy
-    handler: src/EventHandlers.ts  # <-- Added this required path line
+#    handler: src/EventHandlers.ts  # <-- comment out not required V3 envio
     events:
       - event: AdminChanged(address previousAdmin, address newAdmin)
       - event: Approval(address indexed owner, address indexed spender, uint256 value)
