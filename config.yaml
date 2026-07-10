@@ -1,29 +1,35 @@
 # yaml-language-server: $schema=./node_modules/envio/evm.schema.json
 name: envio-indexer
-networks:
-- id: 1
-  start_block: 0
-  contracts:
+
+# 1. Global contract definition (Declares WHAT events exist)
+contracts:
   - name: UpgradeableProxy
-    address:
-    - "0x87622385F960fcCB3121d6D0A9513bd1D9Bed6cA"
     events:
-    - event: AdminChanged(address previousAdmin, address newAdmin)
-    - event: Approval(address indexed owner, address indexed spender, uint256 value)
-    - event: ControllerTransferred(address indexed previousController, address indexed newController)
-    - event: Deprecate(address newAddress)
-    - event: DestroyedBlackFunds(address _blackListedUser, uint256 _balance)
-    - event: FreeTransferLimitChanged(uint256 _oldLimit, uint256 _newLimit)
-    - event: Initialized(uint64 version)
-    - event: IssuanceQueued(string _e2eTag)
-    - event: Issue(address indexed to, uint256 amount, string _e2eTag)
-    - event: NewMintingLimit(uint256 _limit, uint256 _nextLimit)
-    - event: NewTotalSupplyLimit(uint256 _limit, uint256 _nextLimit)
-    - event: OwnerTransferred(address indexed previousOwner, address indexed newOwner, bool wasFirstOwner)
-    - event: Params(uint256 feeBasisPoints, uint256 maxFee)
-    - event: Paused()
-    - event: Redeem(address indexed to, uint256 amount, string _e2eTag)
-    - event: ResetIncrementalSupply()
-    - event: Transfer(address indexed from, address indexed to, uint256 value)
-    - event: Unpaused()
-    - event: Upgraded(address indexed implementation)
+      - event: AdminChanged(address previousAdmin, address newAdmin)
+      - event: Approval(address indexed owner, address indexed spender, uint256 value)
+      - event: ControllerTransferred(address indexed previousController, address indexed newController)
+      - event: Deprecate(address newAddress)
+      - event: DestroyedBlackFunds(address _blackListedUser, uint256 _balance)
+      - event: FreeTransferLimitChanged(uint256 _oldLimit, uint256 _newLimit)
+      - event: Initialized(uint64 version)
+      - event: IssuanceQueued(string _e2eTag)
+      - event: Issue(address indexed to, uint256 amount, string _e2eTag)
+      - event: NewMintingLimit(uint256 _limit, uint256 _nextLimit)
+      - event: NewTotalSupplyLimit(uint256 _limit, uint256 _nextLimit)
+      - event: OwnerTransferred(address indexed previousOwner, address indexed newOwner, bool wasFirstOwner)
+      - event: Params(uint256 feeBasisPoints, uint256 maxFee)
+      - event: Paused()
+      - event: Redeem(address indexed to, uint256 amount, string _e2eTag)
+      - event: ResetIncrementalSupply()
+      - event: Transfer(address indexed from, address indexed to, uint256 value)
+      - event: Unpaused()
+      - event: Upgraded(address indexed implementation)
+
+# 2. Network definition (Declares WHERE the contract lives)
+networks:
+  - id: 1
+    start_block: 0
+    contracts:
+      - name: UpgradeableProxy
+        address:
+          - "0x87622385F960fcCB3121d6D0A9513bd1D9Bed6cA"
