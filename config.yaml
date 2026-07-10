@@ -27,7 +27,7 @@ contracts:
       - event: Upgraded(address indexed implementation)
 
 # 2. Network definition
-networks:
+chains:
   - id: 1
     start_block: 0
     contracts:
