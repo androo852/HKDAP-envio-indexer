@@ -1,0 +1,109 @@
+type UpgradeableProxy_AdminChanged {
+  id: ID!
+  previousAdmin: String!
+  newAdmin: String!
+}
+
+type UpgradeableProxy_Approval {
+  id: ID!
+  owner: String!
+  spender: String!
+  value: BigInt!
+}
+
+type UpgradeableProxy_ControllerTransferred {
+  id: ID!
+  previousController: String!
+  newController: String!
+}
+
+type UpgradeableProxy_Deprecate {
+  id: ID!
+  newAddress: String!
+}
+
+type UpgradeableProxy_DestroyedBlackFunds {
+  id: ID!
+  _blackListedUser: String!
+  _balance: BigInt!
+}
+
+type UpgradeableProxy_FreeTransferLimitChanged {
+  id: ID!
+  _oldLimit: BigInt!
+  _newLimit: BigInt!
+}
+
+type UpgradeableProxy_Initialized {
+  id: ID!
+  version: BigInt!
+}
+
+type UpgradeableProxy_IssuanceQueued {
+  id: ID!
+  _e2eTag: String!
+}
+
+type UpgradeableProxy_Issue {
+  id: ID!
+  to: String!
+  amount: BigInt!
+  _e2eTag: String!
+}
+
+type UpgradeableProxy_NewMintingLimit {
+  id: ID!
+  _limit: BigInt!
+  _nextLimit: BigInt!
+}
+
+type UpgradeableProxy_NewTotalSupplyLimit {
+  id: ID!
+  _limit: BigInt!
+  _nextLimit: BigInt!
+}
+
+type UpgradeableProxy_OwnerTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+  wasFirstOwner: Boolean!
+}
+
+type UpgradeableProxy_Params {
+  id: ID!
+  feeBasisPoints: BigInt!
+  maxFee: BigInt!
+}
+
+type UpgradeableProxy_Paused {
+  id: ID!
+}
+
+type UpgradeableProxy_Redeem {
+  id: ID!
+  to: String!
+  amount: BigInt!
+  _e2eTag: String!
+}
+
+type UpgradeableProxy_ResetIncrementalSupply {
+  id: ID!
+}
+
+type UpgradeableProxy_Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  value: BigInt!
+}
+
+type UpgradeableProxy_Unpaused {
+  id: ID!
+}
+
+type UpgradeableProxy_Upgraded {
+  id: ID!
+  implementation: String!
+}
+
